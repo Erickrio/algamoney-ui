@@ -41,6 +41,6 @@
   text-decoration: none;
 }
 
-.navbar-menuitem a:hover {
+.navbar-menuitem a:hover { /*quando o mause estiver por cima ,fica branco */
   color: #fff;
 }
