@@ -15,16 +15,17 @@
         </div>
 
     </div>
-
+    
     <div class="p-grid">
         <div class="p-col-12">
-            <p-table>
+            <p-table [value]="pessoas" [paginator]="true" [responsive]="true" [rows]="3">
                 <ng-template pTemplate="header">
                     <tr>
                         <th>Nome</th>
                         <th>Cidade</th>
                         <th>Estado</th>
                         <th>Status</th>
+                        <th class="col-acoes-header"></th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-pessoas>
@@ -33,8 +34,35 @@
                            <span class="p-column-title">Nome</span>
                            {{pessoas.nome}}
                        </td>
+                       <td>
+                           <span class="p-column-title">Cidade</span>
+                           {{pessoas.cidade}}
+                       </td>
+                       <td>
+                           <span class="p-column-title">Estado</span>
+                           {{pessoas.estado}}
+                       </td>
+                       <td>
+                           <span class="p-column-title">Status</span>
+                            <a href="javascript:;" [pTooltip]="pessoas.ativo ?'Desativar' : 'Ativar'" >
+                                    {{pessoas.ativo ? 'Ativo' :'Inativo'}}
+                            </a>
+                       </td>
+                       <td class="col-acoes">
+                          <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"></a>
+                          <button pButton icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="top"></button> 
+                       </td>
                    </tr>
                 </ng-template>
+              
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="5">
+                            Nenhuma Pessoa Encontrada
+                        </td>
+                    </tr>
+                </ng-template>
+
             </p-table>
         </div>
 
